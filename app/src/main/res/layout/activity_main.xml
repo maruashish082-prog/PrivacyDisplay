@@ -12,26 +12,24 @@
         android:orientation="vertical"
         android:padding="24dp">
 
-        <!-- Header -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Privacy Display"
+            android:text="Privacy Glass"
             android:textColor="@color/text_primary"
             android:textSize="28sp"
             android:textStyle="bold"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="16dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Narrow-angle privacy filter · Side-angle darkening"
+            android:text="Screen invisible from side angles — like real privacy glass"
             android:textColor="@color/text_secondary"
             android:textSize="13sp"
             android:layout_marginTop="4dp"
-            android:layout_marginBottom="32dp" />
+            android:layout_marginBottom="32dp"/>
 
-        <!-- Power Button -->
         <Button
             android:id="@+id/btnPowerToggle"
             android:layout_width="match_parent"
@@ -40,20 +38,18 @@
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:letterSpacing="0.08"
             android:background="@drawable/btn_toggle_bg"
-            android:layout_marginBottom="12dp" />
+            android:layout_marginBottom="12dp"/>
 
-        <!-- Status -->
         <TextView
             android:id="@+id/tvStatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Privacy filter is inactive. Tap to enable."
+            android:text="Privacy filter inactive. Tap to enable."
             android:textColor="@color/text_secondary"
             android:textSize="13sp"
             android:gravity="center"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"/>
 
         <TextView
             android:id="@+id/tvFaceStatus"
@@ -63,16 +59,15 @@
             android:textColor="@color/warning_color"
             android:textSize="13sp"
             android:gravity="center"
-            android:layout_marginBottom="28dp" />
+            android:layout_marginBottom="28dp"/>
 
-        <!-- Divider -->
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/divider"
             android:layout_marginBottom="24dp"/>
 
-        <!-- Card: Intensity -->
+        <!-- Visible Zone Width -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -80,59 +75,52 @@
             app:cardCornerRadius="16dp"
             app:cardElevation="0dp"
             android:layout_marginBottom="16dp">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="20dp">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="8dp">
-
+                    android:layout_marginBottom="4dp">
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Filter Darkness"
+                        android:text="Visible Zone Width"
                         android:textColor="@color/text_primary"
                         android:textSize="15sp"
-                        android:textStyle="bold" />
-
+                        android:textStyle="bold"/>
                     <TextView
                         android:id="@+id/tvIntensityValue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="85%"
+                        android:text="25%"
                         android:textColor="@color/accent"
                         android:textSize="15sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"/>
                 </LinearLayout>
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="How dark the side edges appear"
+                    android:text="Narrow = only head-on viewer sees screen. Wide = wider angle allowed."
                     android:textColor="@color/text_secondary"
                     android:textSize="12sp"
-                    android:layout_marginBottom="12dp" />
-
+                    android:layout_marginBottom="12dp"/>
                 <SeekBar
                     android:id="@+id/seekbarIntensity"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:max="100"
-                    android:progress="85"
+                    android:progress="25"
                     android:progressTint="@color/accent"
-                    android:thumbTint="@color/accent" />
-
+                    android:thumbTint="@color/accent"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Card: Gradient Width -->
+        <!-- Darkness Level -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -140,59 +128,52 @@
             app:cardCornerRadius="16dp"
             app:cardElevation="0dp"
             android:layout_marginBottom="16dp">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="20dp">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="8dp">
-
+                    android:layout_marginBottom="4dp">
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Viewing Angle Width"
+                        android:text="Side Darkness"
                         android:textColor="@color/text_primary"
                         android:textSize="15sp"
-                        android:textStyle="bold" />
-
+                        android:textStyle="bold"/>
                     <TextView
                         android:id="@+id/tvWidthValue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="60%"
+                        android:text="90%"
                         android:textColor="@color/accent"
                         android:textSize="15sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"/>
                 </LinearLayout>
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="How far the dark gradient extends inward"
+                    android:text="How completely black the sides appear. Max = near-opaque like real glass."
                     android:textColor="@color/text_secondary"
                     android:textSize="12sp"
-                    android:layout_marginBottom="12dp" />
-
+                    android:layout_marginBottom="12dp"/>
                 <SeekBar
                     android:id="@+id/seekbarWidth"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:max="100"
-                    android:progress="60"
+                    android:progress="90"
                     android:progressTint="@color/accent"
-                    android:thumbTint="@color/accent" />
-
+                    android:thumbTint="@color/accent"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Card: Face Detection -->
+        <!-- Face Detection -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -200,37 +181,32 @@
             app:cardCornerRadius="16dp"
             app:cardElevation="0dp"
             android:layout_marginBottom="16dp">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:padding="20dp"
                 android:gravity="center_vertical">
-
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:orientation="vertical">
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Auto Face Detection"
                         android:textColor="@color/text_primary"
                         android:textSize="15sp"
-                        android:textStyle="bold" />
-
+                        android:textStyle="bold"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Auto-activate when someone looks over your shoulder"
+                        android:text="Auto-activate when a 2nd face is detected nearby"
                         android:textColor="@color/text_secondary"
                         android:textSize="12sp"
                         android:layout_marginTop="2dp"/>
                 </LinearLayout>
-
                 <com.google.android.material.switchmaterial.SwitchMaterial
                     android:id="@+id/switchFaceDetection"
                     android:layout_width="wrap_content"
@@ -241,7 +217,7 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Info Card -->
+        <!-- Info -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -249,13 +225,11 @@
             app:cardCornerRadius="16dp"
             app:cardElevation="0dp"
             android:layout_marginBottom="32dp">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="20dp">
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -264,11 +238,10 @@
                     android:textSize="14sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="8dp"/>
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="A dark gradient overlays the screen edges, simulating a physical privacy screen filter. When viewed head-on, the screen is fully visible. From the side, the edges appear dark.\n\nThe filter works across ALL apps. Add the Quick Settings tile for instant access."
+                    android:text="Real privacy glass uses micro-louvers that block all light except straight-on. This app simulates that by covering ~80% of the screen from both sides with a near-opaque black overlay, leaving only a narrow center strip visible.\n\nSet 'Visible Zone Width' low and 'Side Darkness' high for the strongest effect."
                     android:textColor="@color/text_secondary"
                     android:textSize="13sp"
                     android:lineSpacingMultiplier="1.4"/>
