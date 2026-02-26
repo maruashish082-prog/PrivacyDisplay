@@ -1,3 +1,4 @@
--keep class com.privacydisplay.** { *; }
+-keep class com.privacyglass.** { *; }
 -keep class com.google.mlkit.** { *; }
 -keep class androidx.camera.** { *; }
+-dontwarn com.google.mlkit.**
