@@ -8,13 +8,6 @@ import com.privacyglass.MainActivity
 import com.privacyglass.service.OverlayService
 import com.privacyglass.util.PermissionManager
 
-/**
- * Quick Settings tile.
- * - If service is running: toggles overlay ON/OFF
- * - If service is not running: opens app for permission flow
- *
- * To add: pull down twice → tap pencil → drag "Privacy Glass" tile up.
- */
 class PrivacyTileService : TileService() {
 
     override fun onStartListening() {
@@ -24,8 +17,7 @@ class PrivacyTileService : TileService() {
 
     override fun onClick() {
         super.onClick()
-        if (!PermissionManager.hasAllRequiredPermissions(this)) {
-            // Open main app for permission setup
+        if (!PermissionManager.hasAllRequiredPermissions(applicationContext)) {
             startActivityAndCollapse(
                 Intent(this, MainActivity::class.java).apply {
                     flags = Intent.FLAG_ACTIVITY_NEW_TASK
@@ -35,7 +27,6 @@ class PrivacyTileService : TileService() {
         }
 
         if (OverlayService.isRunning) {
-            // Toggle the overlay
             ContextCompat.startForegroundService(
                 this,
                 Intent(this, OverlayService::class.java).apply {
@@ -43,28 +34,22 @@ class PrivacyTileService : TileService() {
                 }
             )
         } else {
-            // Start service
             ContextCompat.startForegroundService(
                 this,
                 Intent(this, OverlayService::class.java)
             )
         }
 
-        // Brief delay then refresh tile state
         qsTile?.let {
             it.state = Tile.STATE_ACTIVE
             it.updateTile()
         }
     }
 
-    override fun onStopListening() {
-        super.onStopListening()
-    }
-
     private fun refreshTile() {
         qsTile?.apply {
             state = when {
-                !PermissionManager.hasAllRequiredPermissions(applicationContext)
+                !PermissionManager.hasAllRequiredPermissions(applicationContext) -> Tile.STATE_UNAVAILABLE
                 OverlayService.isRunning -> Tile.STATE_ACTIVE
                 else -> Tile.STATE_INACTIVE
             }
