@@ -32,10 +32,18 @@ jobs:
       - name: Fix gradlew JVM options
         run: sed -i 's/DEFAULT_JVM_OPTS=.*$/DEFAULT_JVM_OPTS="-Xmx2048m -Xms512m"/' gradlew
 
-      - name: Download gradle-wrapper.jar
+      - name: Setup gradle wrapper files
         run: |
           mkdir -p gradle/wrapper
           curl -sL "https://github.com/gradle/gradle/raw/v8.4.0/gradle/wrapper/gradle-wrapper.jar" -o gradle/wrapper/gradle-wrapper.jar
+          cat > gradle/wrapper/gradle-wrapper.properties << 'EOF'
+          distributionBase=GRADLE_USER_HOME
+          distributionPath=wrapper/dists
+          distributionUrl=https\://services.gradle.org/distributions/gradle-8.4-bin.zip
+          networkTimeout=10000
+          zipStoreBase=GRADLE_USER_HOME
+          zipStorePath=wrapper/dists
+          EOF
 
       - name: Build Debug APK
         run: ./gradlew assembleDebug
