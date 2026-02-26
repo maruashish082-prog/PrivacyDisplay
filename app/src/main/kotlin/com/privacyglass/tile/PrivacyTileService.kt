@@ -64,7 +64,7 @@ class PrivacyTileService : TileService() {
     private fun refreshTile() {
         qsTile?.apply {
             state = when {
-                !PermissionManager.hasAllRequiredPermissions(context) -> Tile.STATE_UNAVAILABLE
+                !PermissionManager.hasAllRequiredPermissions(applicationContext)
                 OverlayService.isRunning -> Tile.STATE_ACTIVE
                 else -> Tile.STATE_INACTIVE
             }
