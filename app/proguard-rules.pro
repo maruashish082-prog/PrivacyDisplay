@@ -1,0 +1,3 @@
+-keep class com.privacydisplay.** { *; }
+-keep class com.google.mlkit.** { *; }
+-keep class androidx.camera.** { *; }

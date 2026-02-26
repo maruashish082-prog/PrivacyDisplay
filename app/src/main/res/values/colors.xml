@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Backgrounds -->
+    <color name="bg_dark">#0F1117</color>
+    <color name="card_bg">#1A1D27</color>
+    <color name="info_bg">#1A2035</color>
+
+    <!-- Text -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#8A8FA8</color>
+
+    <!-- Accent (Blue) -->
+    <color name="accent">#4B8EF1</color>
+
+    <!-- Status colors -->
+    <color name="privacy_active">#2E7D32</color>
+    <color name="privacy_inactive">#37474F</color>
+    <color name="warning_color">#FFA726</color>
+
+    <!-- Misc -->
+    <color name="white">#FFFFFF</color>
+    <color name="divider">#2A2D3A</color>
+
+    <!-- Switch colors -->
+    <color name="switch_on">#4B8EF1</color>
+    <color name="switch_off">#37474F</color>
+</resources>
