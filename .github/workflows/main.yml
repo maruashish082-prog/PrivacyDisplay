@@ -29,6 +29,9 @@ jobs:
       - name: Grant execute permission
         run: chmod +x gradlew
 
+      - name: Fix gradlew JVM options
+        run: sed -i 's/DEFAULT_JVM_OPTS=.*$/DEFAULT_JVM_OPTS="-Xmx2048m -Xms512m"/' gradlew
+
       - name: Download gradle-wrapper.jar
         run: |
           mkdir -p gradle/wrapper
